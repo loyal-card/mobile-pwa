@@ -9,6 +9,7 @@ function App() {
     // either with async/await
     auth0 = await createAuth0Client({
       domain: 'dev-l7c1wrq9.au.auth0.com',
+      audience: 'https://localhost:5000',
       client_id: '4sh93YHeF9hWItsRv9qHQH31tudFKDpY'
     });
     await auth0.loginWithPopup();
@@ -26,6 +27,19 @@ function App() {
 
   }
   
+  const getCode = async() => {
+    const accessToken = await auth0.getTokenSilently();
+    const result = await fetch('http://localhost:5000/api/get-code', {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + accessToken
+      }
+    });
+    
+    console.log(result);
+
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -43,6 +57,8 @@ function App() {
         </a>
         <button onClick={redirect}>Login</button>
         <button onClick={logout}>Log out</button>
+        <button onClick={getCode}>Get code</button>
+
       </header>
     </div>
   );
