@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 // import createAuth0Client from '@auth0/auth0-spa-js';
 import Auth0Lock from "auth0-lock";
+import socketIOClient from "socket.io-client";
 
 function App() {
   var lock = new Auth0Lock(
@@ -13,6 +14,10 @@ function App() {
       }
     }
   );
+
+  const socketEnpoint = 'http://localhost:5000'
+  const socket = socketIOClient(socketEnpoint);
+  socket.on("FromAPI", data => console.log(data));
 
   lock.on("authenticated", function(authResult) {
     // Use the token in authResult to getUserInfo() and save it if necessary
