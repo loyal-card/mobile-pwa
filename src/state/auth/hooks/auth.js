@@ -18,7 +18,11 @@ const useAuth = () => {
   lock.on('authenticated', function (authResult) {
     // Use the token in authResult to getUserInfo() and save it if necessary
     console.log(JSON.stringify(authResult));
-    dispatch(login);
+    let expiredTimeStamp = new Date().getTime() / 1000 + authResult.expiresIn;
+    window.localStorage.setItem('auth0ExpiresIn', expiredTimeStamp);
+    window.localStorage.setItem('auth0AccessToken', authResult.accessToken);
+    lock.hide();
+    dispatch(login());
   });
   const signIn = () => {
     lock.show();
@@ -30,7 +34,7 @@ const useAuth = () => {
     lock.logout();
   };
 
-  return [auth, signIn, siginOut];
+  return [{ auth }, signIn, siginOut];
 };
 
 export default useAuth;

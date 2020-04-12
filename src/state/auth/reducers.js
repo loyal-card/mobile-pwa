@@ -1,10 +1,12 @@
 import { LOGIN, LOGOUT } from './actions';
 
+const expiredTimeStamp = window.localStorage.getItem('auth0ExpiresIn');
 export const INITIAL_STATE = {
-  authenticated: false,
+  authenticated:
+    expiredTimeStamp && (expiredTimeStamp - new Date().getTime()) / 1000 > 0,
+
   profile: null,
 };
-
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LOGIN:
