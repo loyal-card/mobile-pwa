@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import useAuth from '../../state/auth/hooks/auth';
-
 const Login = (props) => {
   const { from } = props.location.state || { from: { pathname: '/home' } };
 

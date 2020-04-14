@@ -14,11 +14,13 @@ const StyledCard = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin: 5px;
+    margin: 15px;
   }
   .coffee-card_item {
-    font-size: 30px;
+    font-size: 35px;
     color: white;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 `;
 

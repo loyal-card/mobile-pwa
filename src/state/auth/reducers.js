@@ -3,7 +3,7 @@ import { LOGIN, LOGOUT } from './actions';
 const expiredTimeStamp = window.localStorage.getItem('auth0ExpiresIn');
 export const INITIAL_STATE = {
   authenticated:
-    expiredTimeStamp && (expiredTimeStamp - new Date().getTime()) / 1000 > 0,
+    expiredTimeStamp && expiredTimeStamp - new Date().getTime() / 1000 > 0,
 
   profile: null,
 };

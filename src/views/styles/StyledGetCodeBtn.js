@@ -8,11 +8,11 @@ const StyledGetCodeBtn = styled.button`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   border-radius: 10px;
-  border: 2px black solid;
-  margin-bottom: 50px;
+  margin-top: 50px;
+  cursor: pointer;
 
   i {
     margin-right: 10px;
