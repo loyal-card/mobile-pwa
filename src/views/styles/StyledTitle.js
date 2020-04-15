@@ -6,7 +6,7 @@ const StyledTitle = styled.div`
   margin: auto;
   margin-top: 30px;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 35px;
   font-family: fantasy;
 `;
 

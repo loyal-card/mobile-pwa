@@ -4,10 +4,10 @@ const StyledCard = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 10px;
   flex-direction: column;
   width: 60%;
-  padding: 20px;
+  padding: 10px;
   height: fit-content;
 
   .coffee-card_row {
@@ -18,7 +18,7 @@ const StyledCard = styled.div`
   }
   .coffee-card_item {
     font-size: 35px;
-    color: white;
+    color: #f08080;
     margin-left: 10px;
     margin-right: 10px;
   }

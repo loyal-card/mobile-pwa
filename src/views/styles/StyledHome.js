@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import coffeeImg from '../images/coffee.jpg';
+
 const StyledHome = styled.div`
-  background-image: url(${coffeeImg});
-  background-color: #cccccc;
+  background-color: #c7ecee;
   width: 100%;
   display: block;
   max-width: 500px;
