@@ -9,7 +9,7 @@ const StyledGetCodeBtn = styled.button`
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 25px;
   font-weight: bold;
   border-radius: 10px;

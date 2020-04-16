@@ -5,7 +5,7 @@ const StyledHome = styled.div`
   width: 100%;
   display: block;
   max-width: 500px;
-  margin: 100px auto;
+  margin: 0 auto;
   padding-top: 20px;
   text-align: center;
   height: 100vh;
