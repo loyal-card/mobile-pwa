@@ -1,5 +1,5 @@
 import { useStateValue } from '../../index';
-import { login } from '../actions';
+import { login, setUserProfile } from '../actions';
 import Auth0Lock from 'auth0-lock';
 
 const useAuth = () => {
@@ -23,6 +23,12 @@ const useAuth = () => {
     window.localStorage.setItem('auth0AccessToken', authResult.accessToken);
     lock.hide();
     dispatch(login());
+    this.getUserInfo(authResult.accessToken, function (error, profile) {
+      if (error) {
+        return;
+      }
+      dispatch(setUserProfile(profile));
+    });
   });
   const signIn = () => {
     lock.show();
