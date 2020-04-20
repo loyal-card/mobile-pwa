@@ -16,20 +16,28 @@ const useAuth = () => {
 
   lock.on('authenticated', function (authResult) {
     // Use the token in authResult to getUserInfo() and save it if necessary
-    console.log(JSON.stringify(authResult));
     let expiredTimeStamp = new Date().getTime() / 1000 + authResult.expiresIn;
     window.localStorage.setItem('auth0ExpiresIn', expiredTimeStamp);
     window.localStorage.setItem('auth0AccessToken', authResult.accessToken);
     lock.hide();
     dispatch(login());
-    this.getUserInfo(authResult.accessToken, function (error, profile) {
-      if (error) {
-        return;
-      }
-      console.log(profile);
-      dispatch(setUserProfile(profile));
-    });
   });
+  const getUserProfile = () => {
+    lock.checkSession({}, function (error, authResult) {
+      if (error || !authResult) {
+        lock.show();
+      } else {
+        // user has an active session, so we can use the accessToken directly.
+        lock.getUserInfo(authResult.accessToken, function (error, profile) {
+          if (error) {
+            return;
+          }
+          dispatch(setUserProfile(profile));
+        });
+      }
+    });
+  };
+
   const signIn = () => {
     lock.show();
   };
@@ -40,7 +48,7 @@ const useAuth = () => {
     lock.logout();
   };
 
-  return [{ auth }, signIn, siginOut];
+  return [{ auth }, signIn, siginOut, getUserProfile];
 };
 
 export default useAuth;

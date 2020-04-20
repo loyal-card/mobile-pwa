@@ -15,12 +15,14 @@ const Home = (props) => {
     fetchCustomerDetails,
     createCustomer,
   ] = useCustomerFetch();
-  const [{ auth }] = useAuth();
+  const [{ auth }, getUserProfile] = useAuth();
 
   useEffect(() => {
-    //console.log(JSON.stringify(auth.profile));
+    if (!auth.profile) {
+      getUserProfile();
+    }
     if (auth.profile && !customerDetail) {
-      //console.log(JSON.stringify(auth.profile));
+      console.log(JSON.stringify(auth.profile));
       if (customerDetailChecked) {
         createCustomer(auth.profile.username, auth.profile.email);
       } else {
