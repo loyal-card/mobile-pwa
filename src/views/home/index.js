@@ -3,21 +3,24 @@ import Card from './elements/Card';
 import GetCodeBtn from './elements/GetCodeBtn';
 import Title from './elements/Title';
 import StyledHome from '../styles/StyledHome';
+import useAuth from '../../state/auth/hooks/auth';
 import useCodeFetch from '../../state/card/hooks/codeFetch';
-import useCustomerFetch from '../../state/customer/hooks/userCustomerFetch';
+import useCustomerFetch from '../../state/customer/hooks/useCustomerFetch';
 import QRCode from 'qrcode.react';
 
 const Home = (props) => {
   const [{ codeUrl, loading, error }, fetchCode] = useCodeFetch();
   const [
-    { customerDetail, customerDetailChecked, loading, error },
+    { customerDetail, customerDetailChecked, profileLoading, dataError },
     fetchCustomerDetails,
     createCustomer,
   ] = useCustomerFetch();
   const [{ auth }] = useAuth();
+
   useEffect(() => {
+    //console.log(JSON.stringify(auth.profile));
     if (auth.profile && !customerDetail) {
-      console.log(JSON.stringify(auth.profile));
+      //console.log(JSON.stringify(auth.profile));
       if (customerDetailChecked) {
         createCustomer(auth.profile.username, auth.profile.email);
       } else {

@@ -1,7 +1,6 @@
 import { useStateValue } from '../../index';
 import { login, setUserProfile } from '../actions';
 import Auth0Lock from 'auth0-lock';
-
 const useAuth = () => {
   const [{ auth }, dispatch] = useStateValue();
 
@@ -27,6 +26,7 @@ const useAuth = () => {
       if (error) {
         return;
       }
+      console.log(profile);
       dispatch(setUserProfile(profile));
     });
   });

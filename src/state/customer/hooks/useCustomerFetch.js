@@ -2,10 +2,12 @@ import { useState } from 'react';
 const useCustomerFetch = () => {
   const [customerDetail, setCustomerDetail] = useState(null);
   const [customerDetailChecked, setDetailChecked] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [profileLoading, setProfileLoading] = useState(false);
+  const [dataError, setDataError] = useState(false);
+
   const fetchCustomerDetails = async (email) => {
-    setLoading(true);
+    setProfileLoading(true);
+    // setDetailChecked(false);需要加这个吗？
     const accessToken = window.localStorage.getItem('accessToken');
     try {
       const response = await fetch(
@@ -14,19 +16,20 @@ const useCustomerFetch = () => {
           method: 'GET',
         }
       );
+      // response.ok ?
       if (response.ok) {
         const result = await response.json();
         setCustomerDetail(result);
       }
-    } catch (error) {
-      setError(error);
+    } catch (dataError) {
+      setDataError(true);
     }
-    setLoading(false);
+    setProfileLoading(false);
     setDetailChecked(true);
   };
 
   const createCustomer = async (username, email) => {
-    setLoading(true);
+    setProfileLoading(true);
     const accessToken = window.localStorage.getItem('accessToken');
     try {
       const response = await fetch(`http://localhost:5000/api/customer/`, {
@@ -42,14 +45,14 @@ const useCustomerFetch = () => {
       const result = await response.json();
 
       setCustomerDetail(result);
-    } catch (error) {
-      setError(error);
+    } catch (dataError) {
+      setDataError(true);
     }
-    setLoading(false);
+    setProfileLoading(false);
   };
 
   return [
-    { customerDetail, customerDetailChecked, loading, error },
+    { customerDetail, customerDetailChecked, profileLoading, dataError },
     fetchCustomerDetails,
     createCustomer,
   ];
