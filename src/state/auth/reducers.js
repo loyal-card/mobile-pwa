@@ -10,6 +10,7 @@ export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LOGIN:
       return {
+        ...state,
         authenticated: true,
       };
 
@@ -19,6 +20,7 @@ export default (state = INITIAL_STATE, action) => {
       };
     case SETUSERPORFILE:
       return {
+        ...state,
         profile: action.payload,
       };
     default:
