@@ -7,7 +7,7 @@ const useCustomerFetch = () => {
 
   const fetchCustomerDetails = async (email) => {
     setProfileLoading(true);
-    // setDetailChecked(false);需要加这个吗？
+    setDetailChecked(false);
     const accessToken = window.localStorage.getItem('accessToken');
     try {
       const response = await fetch(
@@ -53,8 +53,7 @@ const useCustomerFetch = () => {
 
   return [
     { customerDetail, customerDetailChecked, profileLoading, dataError },
-    fetchCustomerDetails,
-    createCustomer,
+    { fetchCustomerDetails, createCustomer },
   ];
 };
 

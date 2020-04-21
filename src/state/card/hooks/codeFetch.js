@@ -4,16 +4,20 @@ const useCodeFetch = () => {
   const [codeUrl, setCodeUrl] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const fetchCode = async () => {
+  const fetchCode = async (email) => {
     setLoading(true);
     const accessToken = window.localStorage.getItem('accessToken');
     try {
-      const result = await fetch('http://localhost:5000/api/get-code', {
-        method: 'GET',
-        headers: {
-          Authorization: 'Bearer ' + accessToken,
-        },
-      });
+      const result = await fetch(
+        // `http://localhost:5000/api/get-code?email=${email}`,
+        'http://localhost:5000/api/get-code',
+        {
+          method: 'GET',
+          headers: {
+            Authorization: 'Bearer ' + accessToken,
+          },
+        }
+      );
       setCodeUrl(result);
     } catch (error) {
       setError(error);

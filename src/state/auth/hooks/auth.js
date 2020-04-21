@@ -23,18 +23,9 @@ const useAuth = () => {
     dispatch(login());
   });
   const getUserProfile = () => {
-    lock.checkSession({}, function (error, authResult) {
-      if (error || !authResult) {
-        lock.show();
-      } else {
-        // user has an active session, so we can use the accessToken directly.
-        lock.getUserInfo(authResult.accessToken, function (error, profile) {
-          if (error) {
-            return;
-          }
-          dispatch(setUserProfile(profile));
-        });
-      }
+    let accessToken = window.localStorage.getItem('auth0AccessToken');
+    lock.getUserInfo(accessToken, function (error, profile) {
+      dispatch(setUserProfile(profile));
     });
   };
 
@@ -47,8 +38,7 @@ const useAuth = () => {
 
     lock.logout();
   };
-
-  return [{ auth }, signIn, siginOut, getUserProfile];
+  return [auth, { signIn, siginOut, getUserProfile }];
 };
 
 export default useAuth;

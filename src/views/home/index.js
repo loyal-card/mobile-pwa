@@ -12,12 +12,11 @@ const Home = (props) => {
   const [{ codeUrl, loading, error }, fetchCode] = useCodeFetch();
   const [
     { customerDetail, customerDetailChecked, profileLoading, dataError },
-    fetchCustomerDetails,
-    createCustomer,
+    { fetchCustomerDetails, createCustomer },
   ] = useCustomerFetch();
-  const [{ auth }, getUserProfile] = useAuth();
-
+  const [auth, { signIn, siginOut, getUserProfile }] = useAuth();
   useEffect(() => {
+    console.log(JSON.stringify(auth.profile));
     if (!auth.profile) {
       getUserProfile();
     }
