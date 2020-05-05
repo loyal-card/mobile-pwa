@@ -11,12 +11,11 @@ const useCustomerFetch = () => {
     const accessToken = window.localStorage.getItem('accessToken');
     try {
       const response = await fetch(
-        `http://localhost:5000/api/customer/get?email=${email}`,
+        `http://localhost:5000/api/customers/get?email=${email}`,
         {
           method: 'GET',
         }
       );
-      // response.ok ?
       if (response.ok) {
         const result = await response.json();
         setCustomerDetail(result);
@@ -32,7 +31,7 @@ const useCustomerFetch = () => {
     setProfileLoading(true);
     const accessToken = window.localStorage.getItem('accessToken');
     try {
-      const response = await fetch(`http://localhost:5000/api/customer/`, {
+      const response = await fetch(`http://localhost:5000/api/customers/`, {
         method: 'POST',
         body: JSON.stringify({
           username: username,
