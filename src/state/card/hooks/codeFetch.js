@@ -8,7 +8,7 @@ const useCodeFetch = () => {
 
   const [{ auth }] = useStateValue();
 
-  const fetchCode = async (email) => {
+  const fetchCode = async () => {
     setLoading(true);
     const accessToken = window.localStorage.getItem('accessToken');
     try {
