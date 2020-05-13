@@ -34,10 +34,9 @@ const Home = (props) => {
     <StyledHome>
       <Title text="CAFE NAME" />
       <Card />
-      <GetCodeBtn text="GET CODE" callback={fetchCode} />
+      <GetCodeBtn text="GET CODE" callback={() => fetchCode('purchase')} />
       {codeUrl && <QRCode value={codeUrl} />}
     </StyledHome>
   );
 };
-
 export default Home;

@@ -8,7 +8,7 @@ const useCodeFetch = () => {
 
   const [{ auth }] = useStateValue();
 
-  const fetchCode = async () => {
+  const fetchCode = async (method) => {
     setLoading(true);
     const accessToken = window.localStorage.getItem('accessToken');
     try {
@@ -21,7 +21,7 @@ const useCodeFetch = () => {
       });
       const result = await response.text();
       let customerEmail = auth.profile && auth.profile.email;
-      setCodeUrl(`${result}&email=${customerEmail}`);
+      setCodeUrl(`${result}&email=${customerEmail}&method=${method}`);
     } catch (error) {
       setError(error);
     }
