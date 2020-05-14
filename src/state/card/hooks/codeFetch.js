@@ -1,12 +1,21 @@
 import { useState } from 'react';
 import { useStateValue } from '../../index';
+import socketIOClient from 'socket.io-client';
 
 const useCodeFetch = () => {
   const [codeUrl, setCodeUrl] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [afterPurchaseData, setAfterPurchaseData] = useState(null);
 
   const [{ auth }] = useStateValue();
+  const socketEnpoint = 'http://localhost:5000';
+  const socket = socketIOClient(socketEnpoint);
+  let customerEmail = auth.profile && auth.profile.email;
+  socket.on(`FromAPI-${customerEmail}`, (data) => {
+    console.log(data);
+    setAfterPurchaseData(data);
+  });
 
   const fetchCode = async (method) => {
     setLoading(true);
