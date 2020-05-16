@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useStateValue } from '../../index';
 import socketIOClient from 'socket.io-client';
+import CORE_SERVICE_ENDPOINT from '../../../config';
 
 const useCodeFetch = () => {
   const [codeUrl, setCodeUrl] = useState(null);
@@ -21,13 +22,16 @@ const useCodeFetch = () => {
     setLoading(true);
     const accessToken = window.localStorage.getItem('accessToken');
     try {
-      const response = await fetch('http://localhost:5000/api/code/get-code', {
-        method: 'GET',
-        headers: {
-          ContentType: 'application/json',
-          Authorization: 'Bearer ' + accessToken,
-        },
-      });
+      const response = await fetch(
+        `${CORE_SERVICE_ENDPOINT}/api/code/get-code`,
+        {
+          method: 'GET',
+          headers: {
+            ContentType: 'application/json',
+            Authorization: 'Bearer ' + accessToken,
+          },
+        }
+      );
       const result = await response.text();
       let customerEmail = auth.profile && auth.profile.email;
       setCodeUrl(`${result}&email=${customerEmail}&method=${method}`);
