@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/loyal-card.github.io/mobile-pwa/static/css/main.69eda509.chunk.css",
+    "main.js": "/loyal-card.github.io/mobile-pwa/static/js/main.15cdbf16.chunk.js",
+    "main.js.map": "/loyal-card.github.io/mobile-pwa/static/js/main.15cdbf16.chunk.js.map",
+    "runtime-main.js": "/loyal-card.github.io/mobile-pwa/static/js/runtime-main.bad60582.js",
+    "runtime-main.js.map": "/loyal-card.github.io/mobile-pwa/static/js/runtime-main.bad60582.js.map",
+    "static/js/2.bdbcfe4c.chunk.js": "/loyal-card.github.io/mobile-pwa/static/js/2.bdbcfe4c.chunk.js",
+    "static/js/2.bdbcfe4c.chunk.js.map": "/loyal-card.github.io/mobile-pwa/static/js/2.bdbcfe4c.chunk.js.map",
+    "index.html": "/loyal-card.github.io/mobile-pwa/index.html",
+    "precache-manifest.a02acb70d76dab58fdb1eadba7ff5687.js": "/loyal-card.github.io/mobile-pwa/precache-manifest.a02acb70d76dab58fdb1eadba7ff5687.js",
+    "service-worker.js": "/loyal-card.github.io/mobile-pwa/service-worker.js",
+    "static/css/main.69eda509.chunk.css.map": "/loyal-card.github.io/mobile-pwa/static/css/main.69eda509.chunk.css.map",
+    "static/js/2.bdbcfe4c.chunk.js.LICENSE.txt": "/loyal-card.github.io/mobile-pwa/static/js/2.bdbcfe4c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bad60582.js",
+    "static/js/2.bdbcfe4c.chunk.js",
+    "static/css/main.69eda509.chunk.css",
+    "static/js/main.15cdbf16.chunk.js"
+  ]
+}
