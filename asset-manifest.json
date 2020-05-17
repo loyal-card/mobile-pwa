@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mobile-pwa/static/css/main.69eda509.chunk.css",
-    "main.js": "/mobile-pwa/static/js/main.d6717ade.chunk.js",
-    "main.js.map": "/mobile-pwa/static/js/main.d6717ade.chunk.js.map",
+    "main.js": "/mobile-pwa/static/js/main.7904758d.chunk.js",
+    "main.js.map": "/mobile-pwa/static/js/main.7904758d.chunk.js.map",
     "runtime-main.js": "/mobile-pwa/static/js/runtime-main.38cf4354.js",
     "runtime-main.js.map": "/mobile-pwa/static/js/runtime-main.38cf4354.js.map",
     "static/js/2.fce44755.chunk.js": "/mobile-pwa/static/js/2.fce44755.chunk.js",
     "static/js/2.fce44755.chunk.js.map": "/mobile-pwa/static/js/2.fce44755.chunk.js.map",
     "index.html": "/mobile-pwa/index.html",
-    "precache-manifest.193c47012c34e5e65121ded07b6bffed.js": "/mobile-pwa/precache-manifest.193c47012c34e5e65121ded07b6bffed.js",
+    "precache-manifest.4c96db47c5b6e1e8ccf65158bb43f95d.js": "/mobile-pwa/precache-manifest.4c96db47c5b6e1e8ccf65158bb43f95d.js",
     "service-worker.js": "/mobile-pwa/service-worker.js",
     "static/css/main.69eda509.chunk.css.map": "/mobile-pwa/static/css/main.69eda509.chunk.css.map",
     "static/js/2.fce44755.chunk.js.LICENSE.txt": "/mobile-pwa/static/js/2.fce44755.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.38cf4354.js",
     "static/js/2.fce44755.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.d6717ade.chunk.js"
+    "static/js/main.7904758d.chunk.js"
   ]
 }
