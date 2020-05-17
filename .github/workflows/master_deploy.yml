@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.16.0]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
@@ -18,8 +18,11 @@ jobs:
     - name: Install Packages
       run: npm install
     - name: Deploy to GH Pages
+      env:
+        CI: false
       run: |
         git config --global user.email "guohua_lee@hotmail.com"
         git config --global user.name "tiagra56"
         git remote set-url origin https://e575a6436aba747acad963a9532eeb1fd97ba31c@github.com/loyal-card/mobile-pwa.git
         npm run deploy
+        
