@@ -18,10 +18,8 @@ jobs:
     - name: Install Packages
       run: npm install
     - name: Deploy to GH Pages
-        run: |
-          git config --global user.email "guohua_lee@hotmail.com"
-          git config --global user.name "tiagra56"
-          git remote set-url origin https://e575a6436aba747acad963a9532eeb1fd97ba31c@github.com/loyal-card/mobile-pwa.git
+      run: |
+        git config --global user.email "guohua_lee@hotmail.com"
+        git config --global user.name "tiagra56"
+        git remote set-url origin https://e575a6436aba747acad963a9532eeb1fd97ba31c@github.com/loyal-card/mobile-pwa.git
       run: npm run deploy
-    - name: Updating Domain
-      run: echo "Update domain"
