@@ -20,7 +20,9 @@ jobs:
     - name: Deploy to GH Pages
       env:
         CI: false
-      run: |
-        git config user.name "tiagralee" && git config user.email "guohua_lee@163.com"
-        npm run deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.MOBILE_DEPLOY }}
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: build # The folder the action should deploy.
         
