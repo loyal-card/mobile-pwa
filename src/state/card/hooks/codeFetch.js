@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useStateValue } from '../../index';
 import socketIOClient from 'socket.io-client';
-import CORE_SERVICE_ENDPOINT from '../../../config';
+import config from '../../../config';
 
 const useCodeFetch = () => {
   const [codeUrl, setCodeUrl] = useState(null);
@@ -10,7 +10,7 @@ const useCodeFetch = () => {
   const [afterPurchaseData, setAfterPurchaseData] = useState(null);
 
   const [{ auth }] = useStateValue();
-  const socketEnpoint = 'http://localhost:5000';
+  const socketEnpoint = config.CORE_SERVICE_ENDPOINT;
   const socket = socketIOClient(socketEnpoint);
   let customerEmail = auth.profile && auth.profile.email;
   socket.on(`FromAPI-${customerEmail}`, (data) => {
@@ -23,7 +23,7 @@ const useCodeFetch = () => {
     const accessToken = window.localStorage.getItem('accessToken');
     try {
       const response = await fetch(
-        `${CORE_SERVICE_ENDPOINT}/api/code/get-code`,
+        `${config.CORE_SERVICE_ENDPOINT}/api/code/get-code`,
         {
           method: 'GET',
           headers: {

@@ -13,7 +13,7 @@ const App = (props) => {
   };
   return (
     <StateProvider initialState={initialState} reducer={reducers}>
-      <Router>
+      <Router basename='/mobile-pwa'>
         <Switch>
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/home" component={Home} />
