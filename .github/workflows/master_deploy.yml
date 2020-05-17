@@ -21,8 +21,6 @@ jobs:
       env:
         CI: false
       run: |
-        git config --global user.email "guohua_lee@163.com"
-        git config --global user.name "tiagralee"
-        git remote set-url origin https://1b4747f30ef7e4f34b065e6c6bb749ee1174935c@github.com/loyal-card/mobile-pwa.git
+        git config user.name "tiagralee" && git config user.email "guohua_lee@163.com"
         npm run deploy
         
