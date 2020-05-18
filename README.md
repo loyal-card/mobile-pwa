@@ -21,7 +21,7 @@ This`client-mobile-app` will be used by the customer.
 1. `cd` to the project root
 2. `npm install`to install the npm dependencies
 ### Running locally
-- `npm run start` to start cypress dashboard and run all automation
+- `npm run start` to start the local development server with hot reloading
 ### Deployment
 - The CI/CD is managed with Github Action, the config file is in `.github/workflows/master_deploy.yml`, the multiple steps workflow can be configured to add more tasks like tests or eslint, and the environment variables can be configured as well
 - You can run the `npm run deploy` to deploy the project directly to Github Pages.
